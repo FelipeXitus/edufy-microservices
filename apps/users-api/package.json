@@ -18,8 +18,8 @@
 		"test:cov": "jest --coverage",
 		"test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
 		"test:e2e": "jest --config ./test/jest-e2e.json",
-		"migrate": "pnpm run kysely migrate:latest",
-		"postmigrate": "pnpm run codegen"
+		"migrate": "npm run kysely migrate:latest",
+		"postmigrate": "npm run codegen"
 	},
 	"dependencies": {
 		"@nestjs/common": "^11.0.1",

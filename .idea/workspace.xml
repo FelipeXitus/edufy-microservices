@@ -13,7 +13,7 @@
       <change beforePath="$PROJECT_DIR$/apps/api-gateway/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api-gateway/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/auth-api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/auth-api/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users-api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users-api/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +72,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
+    "nodejs_package_manager_path": "npm",
     "npm.api-gateway > lint.executor": "Run",
     "npm.dev.executor": "Run",
     "settings.editor.selected.configurable": "editing.templates",
@@ -103,7 +103,7 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="npm run dev" />
-      <command value="pnpm install" />
+      <command value="npm install" />
     </option>
   </component>
   <component name="RunManager" selected="npm.dev">
