@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # PostgreSQL para Auth API
   auth-db:
@@ -10,7 +8,7 @@ services:
       POSTGRES_USER: auth_user
       POSTGRES_PASSWORD: auth_password
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - auth_db_data:/var/lib/postgresql/data
       - ./docker/init-scripts/auth-init.sql:/docker-entrypoint-initdb.d/01-init.sql
@@ -32,7 +30,7 @@ services:
       POSTGRES_USER: users_user
       POSTGRES_PASSWORD: users_password
     ports:
-      - "5433:5432"
+      - "5434:5432"
     volumes:
       - users_db_data:/var/lib/postgresql/data
       - ./docker/init-scripts/users-init.sql:/docker-entrypoint-initdb.d/01-init.sql
@@ -97,6 +95,3 @@ volumes:
 networks:
   edufy-network:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
