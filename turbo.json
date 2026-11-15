@@ -1,5 +1,4 @@
 {
-  "$schema": "https://turborepo.com/schema.json",
   "ui": "tui",
   "tasks": {
     "build": {
@@ -13,6 +12,11 @@
     "check-types": {
       "dependsOn": ["^check-types"]
     },
+    "migrate": {
+			"dependsOn": ["^migrate"],
+			"cache": false,
+			"persistent": true
+		},
     "dev": {
       "cache": false,
       "persistent": true

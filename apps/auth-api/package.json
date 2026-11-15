@@ -20,7 +20,7 @@
 		"test:e2e": "jest --config ./test/jest-e2e.json",
 		"kysely": "kysely",
 		"codegen": "kysely-codegen",
-		"migrate": "npm run kysely migrate:latest",
+		"migrate": "npm run kysely -- migrate:latest",
 		"postmigrate": "npm run codegen"
 	},
 	"dependencies": {
