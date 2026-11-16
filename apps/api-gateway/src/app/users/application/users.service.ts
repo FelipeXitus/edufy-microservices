@@ -9,10 +9,10 @@ export class UsersService {
     @Inject("AUTH_API_SERVICE") private readonly authClientProxy: ClientProxy,
   ) {}
 
-  public async createUser(body: SignupUserDto) {
+  public createUser(body: SignupUserDto) {
     return this.authClientProxy.send("createUser", body).pipe(
       timeout(5000),
-      catchError((err) => {
+      catchError((err: string | object) => {
         return throwError(() => new RpcException(err));
       }),
     );

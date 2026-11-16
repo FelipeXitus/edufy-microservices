@@ -2,7 +2,7 @@ import { Body, Controller, Post, UseFilters } from "@nestjs/common";
 import { UsersService } from "../application/users.service";
 import { SignupUserDto } from "./dto/signup-user.dto";
 import { Public } from "./public.decorator";
-import { RpcToHttpExceptionFilter } from "src/libs/exception-filters/rpc-to-http.exception-filter";
+import { RpcToHttpExceptionFilter } from "../../../libs/exception-filters/rpc-to-http.exception-filter";
 
 @Controller("users")
 export class UsersController {

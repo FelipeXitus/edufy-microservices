@@ -1,6 +1,6 @@
-import { Expose } from 'class-transformer';
-import { UserProps } from '../../domain/user.entity';
-import { UserRole, UserRoleEnum } from '../../domain/user.role';
+import { Expose } from "class-transformer";
+import { UserProps } from "../../domain/user.entity";
+import { UserRole, UserRoleEnum } from "../../domain/user.role";
 
 export interface CreateUserReadDtoInput extends UserProps {
   resolvedTickets?: number;
@@ -15,7 +15,7 @@ export class UserReadDto {
   interests?: string[];
   profilePictureUrl?: string;
   @Expose({ groups: [UserRole.SupportAgent] })
-  resolvedTickets: number;
+  resolvedTickets?: number;
 
   constructor(user: CreateUserReadDtoInput) {
     this.id = user.id;

@@ -2,7 +2,7 @@ import { registerAs } from "@nestjs/config";
 import z from "zod";
 
 const databaseConfigSchema = z.object({
-  url: z.url(),
+  url: z.string().url(),
 });
 
 export default registerAs("database", () =>
