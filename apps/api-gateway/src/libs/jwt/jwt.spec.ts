@@ -15,7 +15,7 @@ describe("JWT", () => {
     const payload = {
       sub: "a04b78e0-4c14-494d-866f-2587847aa70a",
     };
-    const token = jwtService.sign(payload);
+    const token: string = jwtService.sign(payload);
 
     const jwt = new Jwt(token);
 
@@ -25,7 +25,7 @@ describe("JWT", () => {
     const payload = {
       sub: "a04b78e0-4c14-494d-866f-2587847aa70a",
     };
-    const token = jwtService.sign(payload);
+    const token: string = jwtService.sign(payload);
 
     const jwt = new Jwt(token);
 
