@@ -1,20 +1,38 @@
 import { Module } from "@nestjs/common";
-import { ConfigModule } from "@nestjs/config";
-import { AppController } from "./app.controller.js";
-import { AppService } from "./app.service.js";
-import configuration from "./config/configuration.js";
+import { ConfigService } from "@nestjs/config";
+import { APP_FILTER } from "@nestjs/core";
+import { ClientsModule, Transport } from "@nestjs/microservices";
+import { ConfigurationModule } from "src/libs/configuration/configuration.module";
+import { RpcToHttpExceptionFilter } from "src/libs/exception-filters/rpc-to-http.exception-filter";
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { UsersModule } from "./app/users/users.module";
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
+    ConfigurationModule,
+    ClientsModule.registerAsync({
       isGlobal: true,
-      load: [configuration],
-      envFilePath: [".env", ".env.local"],
-      cache: true,
-      expandVariables: true,
+      clients: [
+        {
+          name: "AUTH_API_SERVICE",
+          inject: [ConfigService],
+          useFactory: (configService: ConfigService) => ({
+            transport: Transport.TCP,
+            options: {
+              host: configService.get("authService.host"),
+              port: configService.get("authService.port"),
+            },
+          }),
+        },
+      ],
     }),
+    UsersModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    { provide: APP_FILTER, useClass: RpcToHttpExceptionFilter },
+  ],
 })
 export class AppModule {}
